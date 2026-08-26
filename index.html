@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSSWERK · Website-Konzept & Angebot · NXT YOU</title>
+<meta name="description" content="Website-Konzept & Angebot für ROSSWERK — Fine Automobiles. Von NXT YOU.">
+<link href="fonts-inter.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07080A; --bg2:#0A0C10; --card:#14171D; --card2:#181C23;
+    --border:rgba(255,255,255,0.08); --border-2:rgba(154,168,222,0.28);
+    --accent:#9AA8DE; --accent-2:#8090C6; --node:#7E8CC4;
+    --white:#F4F6FA; --text:#C3C7D0; --muted:#7B808B;
+    --maxw:940px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* background glow, cheap */
+  .bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 40% at 82% 8%, rgba(154,168,222,0.07), transparent 60%),
+      radial-gradient(50% 40% at 12% 98%, rgba(154,168,222,0.05), transparent 60%);}
+  .content{position:relative;z-index:1}
+
+  /* top nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(7,8,10,0.72);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav img{height:30px;opacity:.95}
+  nav .r{display:flex;align-items:center;gap:22px}
+  nav .r a{font-size:12px;color:var(--muted);letter-spacing:.02em}
+  nav .r a:hover{color:var(--white)}
+  nav .pdf{border:1px solid var(--border-2);border-radius:999px;padding:7px 15px;color:var(--accent)!important;font-size:11.5px;letter-spacing:.04em}
+  nav .pdf:hover{background:rgba(154,168,222,.1)}
+  @media(max-width:640px){nav .r a.nl{display:none}}
+
+  /* hero */
+  header.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px}
+  header.hero .logo{height:74px;margin-bottom:40px;opacity:.97}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.3em;color:var(--accent);text-transform:uppercase}
+  header.hero h1{font-size:clamp(42px,8vw,78px);font-weight:800;letter-spacing:.01em;line-height:1.02;text-transform:uppercase;margin-top:18px}
+  header.hero h1 .a{display:block;color:var(--accent);font-size:clamp(20px,3.6vw,34px);letter-spacing:.14em;margin-top:16px}
+  header.hero .sub{font-size:clamp(15px,2.3vw,19px);color:var(--text);margin-top:26px;max-width:600px}
+  header.hero .dv{width:56px;height:2px;background:var(--accent);opacity:.7;margin:30px 0}
+  header.hero .meta{font-size:13px;color:var(--muted);letter-spacing:.02em}
+  .scrollhint{margin-top:52px;font-size:11px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scrollhint .ln{width:1px;height:34px;background:linear-gradient(var(--accent),transparent);animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* sections */
+  section{padding:74px 0;border-top:1px solid var(--border)}
+  .sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  h2{font-size:clamp(28px,4.6vw,42px);font-weight:800;letter-spacing:.005em;line-height:1.12;text-transform:uppercase}
+  h2 .a{color:var(--accent)}
+  .subline{font-size:15px;color:var(--muted);margin-top:12px;max-width:640px}
+  p{font-size:15px;line-height:1.75;color:var(--text)}
+  .lead{font-size:17px;line-height:1.7;color:#D7DAE1;max-width:760px;margin-top:24px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 28px}
+  .card.hl{border-color:var(--border-2)}
+  .card .ct{font-size:19px;font-weight:700}
+  .card .cu{font-size:13px;color:var(--accent);margin-top:3px}
+  .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .field{margin-top:16px}.field .v{font-size:15px;color:#DBDEE4;margin-top:3px}
+
+  .goals{list-style:none;margin-top:10px}
+  .goals li{display:flex;gap:15px;padding:13px 0;border-bottom:1px solid var(--border)}
+  .goals li:last-child{border-bottom:none}
+  .goals .gn{font-size:18px;font-weight:800;color:var(--accent);min-width:30px}
+  .goals .gt{font-size:15px;font-weight:700}
+  .goals .gd{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.55}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;margin-top:38px;gap:0}
+  .node{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;text-align:center;width:100%}
+  .node .nt{font-size:16px;font-weight:700}
+  .node .ns{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .node.top{background:#EEF0F6;border-color:#EEF0F6;max-width:360px}
+  .node.top .nt{color:#12141A}.node.top .ns{color:#565b66}
+  .node.key{background:var(--node);border-color:var(--node)}
+  .node.key .nt{color:#0e1016}.node.key .ns{color:#232a3d}
+  .conn{width:2px;height:26px;background:var(--border-2)}
+  .branchgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
+  @media(max-width:760px){.branchgrid{grid-template-columns:1fr 1fr}}
+  .legal{background:var(--card);border:1px dashed var(--border-2);border-radius:14px;padding:14px 20px;text-align:center;width:min(100%,520px)}
+  .legal .nt{font-size:14px;font-weight:600;color:var(--text)}
+  .legend{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+  .legend span{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  /* rows */
+  .rows{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+  .rrow{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:18px 22px;display:grid;grid-template-columns:190px 1fr;gap:22px;align-items:center;transition:border-color .3s,transform .3s}
+  .rrow:hover{border-color:var(--border-2);transform:translateY(-2px)}
+  @media(max-width:640px){.rrow{grid-template-columns:1fr;gap:12px}}
+  .rtile{background:#0f1319;border:1px solid var(--border);border-radius:11px;height:66px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+  .rtile .tn{font-size:15px;font-weight:800;color:#D8DCE4;letter-spacing:.04em;text-transform:uppercase}
+  .rhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .rhead .nm{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+  .rhead .cat{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.12em}
+  .rrow p{font-size:13.5px;margin-top:7px}
+  .rrow .u{font-size:12px;color:var(--accent-2);margin-top:9px}
+
+  /* table */
+  .tablewrap{margin-top:30px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:520px}
+  th{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:left;padding:12px 6px;border-bottom:1px solid var(--border)}
+  td{font-size:14px;color:var(--text);padding:12px 6px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+  td.h{text-align:right;font-weight:600;color:var(--white);white-space:nowrap;font-variant-numeric:tabular-nums}
+  tr.modhdr td{color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-top:20px}
+  tr.modhdr td.h{color:var(--accent)}
+  tr.sum td{border-top:1px solid var(--border-2);border-bottom:none;color:var(--white);font-weight:700;font-size:15px;padding-top:15px}
+  tr.sum td.h{font-size:20px;color:var(--accent)}
+  .kv td.h{font-size:16px}
+
+  /* phases */
+  .phases{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+  .prow{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:18px 24px;display:grid;grid-template-columns:48px 180px 1fr;gap:22px;align-items:center;transition:border-color .3s,transform .3s}
+  .prow:hover{border-color:var(--border-2);transform:translateY(-2px)}
+  @media(max-width:640px){.prow{grid-template-columns:1fr;gap:6px}}
+  .prow .pn{font-size:24px;font-weight:800;color:var(--accent)}
+  .prow .ph{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+  .prow p{font-size:13.5px}
+  .list{list-style:none;margin-top:12px}
+  .list li{font-size:14.5px;line-height:1.8;color:var(--text);padding-left:18px;position:relative}
+  .list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+
+  .quote{background:linear-gradient(120deg,rgba(154,168,222,0.1),rgba(20,23,29,0.5));border:1px solid var(--border-2);border-radius:18px;padding:34px 36px;text-align:center;margin-top:36px}
+  .quote p{font-size:clamp(18px,2.6vw,23px);color:#E9ECF3;font-weight:500;line-height:1.45}
+  .cta-btn{display:inline-block;margin-top:26px;background:var(--accent);color:#0e1016;font-weight:700;font-size:14px;letter-spacing:.02em;padding:14px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(154,168,222,.25)}
+
+  footer{border-top:1px solid var(--border);padding:40px 0 56px;margin-top:20px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+  footer .fi{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+  footer svg{width:15px;height:15px;stroke:var(--accent);fill:none;stroke-width:1.5;opacity:.85}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scrollhint .ln{animation:none}}
+</style>
+</head>
+<body>
+<div class="bgfx"></div>
+<div class="content">
+
+<nav>
+  <div class="wrap">
+    <img src="assets/logo-lockup.png" alt="NXT YOU">
+    <div class="r">
+      <a class="nl" href="#struktur">Struktur</a>
+      <a class="nl" href="#umfang">Leistungen</a>
+      <a class="nl" href="#kosten">Investition</a>
+      <a class="pdf" href="rosswerk-angebot.pdf">PDF ansehen</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="logo" src="assets/logo-lockup.png" alt="NXT YOU">
+  <div class="eyebrow">Website-Konzept &amp; Angebot</div>
+  <h1>ROSSWERK<span class="a">Fine Automobiles</span></h1>
+  <div class="sub">Der digitale Auftritt für den neuen Standort in Hamburg.</div>
+  <div class="dv"></div>
+  <div class="meta">NXT YOU GmbH &nbsp;·&nbsp; August 2026 &nbsp;·&nbsp; Arbeitsstand zur Besprechung</div>
+  <div class="scrollhint"><span>Scrollen</span><span class="ln"></span></div>
+</header>
+
+<section id="vision">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Ausgangslage &amp; Vision</div>
+      <h2>Eine Marke, <span class="a">ein neuer Anspruch</span></h2>
+      <p class="lead">ROSSWERK startet in Hamburg als eigenständige Marke für außergewöhnliche Automobile. Der Anspruch ist nicht, ein weiteres Autohaus zu sein, sondern ein Ort, an dem Seltenheit, Handwerk und Charakter zusammenkommen. Der digitale Auftritt muss diesen Anspruch vom ersten Moment tragen — dunkel, ruhig, cineastisch und unbedingt seriös, in der Liga von Häusern wie dem Referenzhaus PAMO.</p>
+    </div>
+    <div class="grid2">
+      <div class="card reveal">
+        <div class="ct">Der Kunde</div><div class="cu">ROSSWERK — Fine Automobiles</div>
+        <div class="field"><span class="lbl">Standort</span><div class="v">Hamburg · Neueröffnung mit neuer Brand</div></div>
+        <div class="field"><span class="lbl">Segment</span><div class="v">Luxus- &amp; Sportwagen, hochpreisig</div></div>
+        <div class="field"><span class="lbl">Positionierung</span><div class="v">Futuristisch-luxuriös, hochseriös</div></div>
+        <div class="field"><span class="lbl">Referenz-Umfang</span><div class="v">pamocars.com</div></div>
+      </div>
+      <div class="card reveal">
+        <div class="ct">Ziele des Auftritts</div><div class="cu">Was die Website erreichen soll</div>
+        <ul class="goals">
+          <li><span class="gn">01</span><div><div class="gt">Seriosität</div><div class="gd">Vertrauen und Preisklasse ohne ein Wort transportieren — Ruhe statt Lautstärke.</div></div></li>
+          <li><span class="gn">02</span><div><div class="gt">Erlebnis</div><div class="gd">Ein cineastischer, digitaler Showroom, in dem jedes Fahrzeug inszeniert wird.</div></div></li>
+          <li><span class="gn">03</span><div><div class="gt">Führung</div><div class="gd">Klar bis zur Anfrage geführt — jede Seite endet mit einem nächsten Schritt.</div></div></li>
+          <li><span class="gn">04</span><div><div class="gt">Substanz</div><div class="gd">Ein pflegbares Fahrzeug-Inventar mit echten Detailseiten statt Bildergalerie.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="struktur">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Struktur · Seiten &amp; Sektionen</div>
+      <h2>Der Aufbau <span class="a">der Website</span></h2>
+      <div class="subline">Acht gestaltete Seiten — Fahrzeuge &amp; Classics teilen sich eine Vorlage. Die Zahl nennt die Sektionen je Seite.</div>
+    </div>
+    <div class="tree reveal">
+      <div class="node top"><div class="nt">Startseite</div><div class="ns">Cineastischer Einstieg in die Markenwelt · ~12 Sektionen</div></div>
+      <div class="conn"></div>
+      <div class="branchgrid">
+        <div class="node key"><div class="nt">Fahrzeuge</div><div class="ns">Katalog · Filter · Detailvorlage</div></div>
+        <div class="node"><div class="nt">Classics</div><div class="ns">Zweiter Katalog · gleiche Vorlage</div></div>
+        <div class="node"><div class="nt">Services</div><div class="ns">Leistungen · ~5</div></div>
+        <div class="node"><div class="nt">Magazin</div><div class="ns">Blog · Artikel-CMS · ~8</div></div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="branchgrid">
+        <div class="node"><div class="nt">Über uns</div><div class="ns">Marke · Team · Standort · ~10</div></div>
+        <div class="node"><div class="nt">Karriere</div><div class="ns">Stellen · ~5</div></div>
+        <div class="node"><div class="nt">Kontakt</div><div class="ns">Anfrage · Anfahrt · ~3</div></div>
+        <div class="node"><div class="nt">Global</div><div class="ns">Header · Footer · Newsletter</div></div>
+      </div>
+      <div class="conn"></div>
+      <div class="legal"><div class="nt">Rechtliches &nbsp;·&nbsp; Impressum &nbsp;·&nbsp; Datenschutz &nbsp;·&nbsp; AGB</div></div>
+    </div>
+    <div class="legend reveal">
+      <span><span class="dot" style="background:var(--node)"></span>Kern / Conversion</span>
+      <span><span class="dot" style="background:var(--card2);border:1px solid var(--border)"></span>Inhalt &amp; Marke</span>
+      <span><span class="dot" style="background:transparent;border:1px dashed var(--border-2)"></span>Basis / rechtlich</span>
+    </div>
+    <p class="subline reveal" style="text-align:center;margin:18px auto 0">Bewusst nicht im Umfang: der passwortgeschützte Mitgliederbereich.</p>
+  </div>
+</section>
+
+<section id="inspiration">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Inspiration · Richtung</div>
+      <h2>Woran wir <span class="a">uns messen</span></h2>
+      <div class="subline">Qualitätsanker für Animation, Storytelling und Atmosphäre — nicht als Vorlage, sondern als Maßstab.</div>
+    </div>
+    <div class="rows">
+      <div class="rrow reveal"><div class="rtile"><div class="tn">PAMO</div></div><div><div class="rhead"><span class="nm">PAMO Cars</span><span class="cat">Referenzhaus · Kern</span></div><p>Dunkler Supercar-Hub mit Inventar, Magazin und starker Markeninszenierung. Unser struktureller Maßstab für Umfang und Tiefe.</p><div class="u">pamocars.com</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Pagani</div></div><div><div class="rhead"><span class="nm">Pagani</span><span class="cat">Hyper-Luxus</span></div><p>Cineastisches Storytelling, in dem jedes Fahrzeug wie ein Kunstwerk zelebriert wird. Vorbild für würdevolle Übergänge und Bildführung.</p><div class="u">pagani.com</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Rolls-Royce</div></div><div><div class="rhead"><span class="nm">Rolls-Royce</span><span class="cat">Zeitlose Eleganz</span></div><p>Ruhige Komposition, viel Raum, präzise Typografie in dunklen Tönen. Vorbild für Seriosität ohne Kälte.</p><div class="u">rolls-roycemotorcars.com</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Bugatti</div></div><div><div class="rhead"><span class="nm">Bugatti</span><span class="cat">Cineastisch</span></div><p>Scroll-getriebene Inszenierung mit Tiefe. Zeigt, wie technische Daten emotional statt trocken erzählt werden.</p><div class="u">bugatti.com</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Zenvo</div></div><div><div class="rhead"><span class="nm">Zenvo Automotive</span><span class="cat">Reduziert</span></div><p>Dunkler Manufaktur-Auftritt mit mutigen Leerräumen und feinen Interaktionen. Vorbild für „weniger, aber hochwertiger".</p><div class="u">zenvoautomotive.com</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="umfang">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Projektumfang · Leistungspositionen</div>
+      <h2>Was wir <span class="a">liefern</span></h2>
+      <div class="subline">Transparente Aufschlüsselung nach Modulen und geschätztem Aufwand.</div>
+    </div>
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th style="width:82%">Funktionsbeschreibung</th><th style="text-align:right">Std.</th></tr></thead>
+        <tbody>
+          <tr class="modhdr"><td>UX &amp; Design</td><td class="h">18</td></tr>
+          <tr><td>Analyse von Zielgruppe und Kernbotschaften, Conversion-Ziele sowie Entwicklung der Seitenstruktur als Sitemap</td><td class="h">4</td></tr>
+          <tr><td>Wireframes als funktionales Grundgerüst mit UX-Flows für alle wesentlichen Nutzerinteraktionen</td><td class="h">4</td></tr>
+          <tr><td>Individuelles Designkonzept (Look &amp; Feel) auf Basis des Brandbooks für alle Seiten — Farben, Typografie, Komponenten</td><td class="h">7</td></tr>
+          <tr><td>Mobile-First-Design, Responsive Layouts für alle Endgeräte sowie abschließendes Design-Review</td><td class="h">3</td></tr>
+          <tr class="modhdr"><td>Technische Umsetzung</td><td class="h">29</td></tr>
+          <tr><td>Umsetzung aller Seiten (Start, Über uns, Services, Karriere, Kontakt, Magazin) in sauberem, performantem Code inkl. globaler Elemente</td><td class="h">15</td></tr>
+          <tr><td>Fahrzeug-Katalog mit Filter und Detailvorlage; template-basierte Wiederverwendung für den Classics-Bereich</td><td class="h">9</td></tr>
+          <tr><td>Integration eines CMS (template-basiert) für Katalog, Magazin und Karriere — editierbare Inhalte</td><td class="h">5</td></tr>
+          <tr class="modhdr"><td>Performance, SEO &amp; Formulare</td><td class="h">6</td></tr>
+          <tr><td>Optimierung von Ladezeiten und Core Web Vitals für saubere Performance auf allen Endgeräten</td><td class="h">2</td></tr>
+          <tr><td>Konzeption, Design und DSGVO-konforme Integration des Kontakt- und Anfrageformulars</td><td class="h">2</td></tr>
+          <tr><td>SEO-Basis-Setup: Struktur, Title Tags, Meta-Beschreibungen, Sitemap &amp; Robots</td><td class="h">2</td></tr>
+          <tr class="modhdr"><td>Go-Live, Server &amp; Hosting</td><td class="h">3</td></tr>
+          <tr><td>Einrichtung von Domain, Server und Hosting, technischer Go-Live sowie Übergabe der Zugänge und Schulungsmaterialien</td><td class="h">3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="kosten">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Umsetzungsaufwand &amp; Investition</div>
+      <h2>Aufwand <span class="a">&amp; Kosten</span></h2>
+      <div class="subline">Klar kalkuliert — zu Freundschaftskonditionen.</div>
+    </div>
+    <div class="grid2">
+      <div class="card reveal">
+        <div class="ct">Leistungsübersicht</div><div class="cu">Aufwand je Modul</div>
+        <table style="margin-top:14px"><tbody class="kv">
+          <tr><td>UX &amp; Design</td><td class="h">18 Std.</td></tr>
+          <tr><td>Technische Umsetzung</td><td class="h">29 Std.</td></tr>
+          <tr><td>Performance, SEO &amp; Formulare</td><td class="h">6 Std.</td></tr>
+          <tr><td>Go-Live, Server &amp; Hosting</td><td class="h">3 Std.</td></tr>
+          <tr class="sum"><td>Gesamt</td><td class="h">56 Std.</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card hl reveal">
+        <div class="ct">Kostenübersicht</div><div class="cu">Investition inkl. Freundschaftsrabatt</div>
+        <table style="margin-top:14px"><tbody class="kv">
+          <tr><td>56 Std. · Standardsatz 100 €</td><td class="h" style="color:var(--muted);text-decoration:line-through">5.600 €</td></tr>
+          <tr><td>Freundschaftskondition · 80 € / Std.</td><td class="h">4.480 €</td></tr>
+          <tr><td style="color:var(--accent)">Ihr Vorteil</td><td class="h" style="color:var(--accent)">− 1.120 €</td></tr>
+          <tr class="sum"><td>Gesamtinvestition <span style="display:block;font-weight:400;font-size:11px;color:var(--muted)">zzgl. USt.</span></td><td class="h">4.480 €</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+    <div class="card reveal" style="margin-top:20px">
+      <span class="lbl">Hinweis zur Kalkulation</span>
+      <p style="margin-top:10px">Bewusst schlank kalkuliert: Wir arbeiten template-basiert und verzichten auf die sonst üblichen Aufschläge für Projektmanagement und Puffer — ein kleiner Sicherheitspuffer ist bereits in der Schätzung enthalten. Das ist Teil der Freundschaftskondition.</p>
+    </div>
+  </div>
+</section>
+
+<section id="vorgehen">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Vorgehen · Timeline</div>
+      <h2>Von der Struktur <span class="a">zum Go-Live</span></h2>
+      <div class="subline">Fünf klare Etappen · Richtwert rund vier bis sechs Wochen bei zügiger Zuarbeit.</div>
+    </div>
+    <div class="phases">
+      <div class="prow reveal"><div class="pn">01</div><div class="ph">Konzept &amp; UX</div><p>Zielgruppe, Sitemap und Wireframes — das Fundament der Nutzerführung.</p></div>
+      <div class="prow reveal"><div class="pn">02</div><div class="ph">Design</div><p>Look &amp; Feel auf Basis des Brandbooks, alle Seiten als finales Design.</p></div>
+      <div class="prow reveal"><div class="pn">03</div><div class="ph">Umsetzung</div><p>Template-basierter Aufbau, Katalog- &amp; Detailsystem, CMS-Anbindung.</p></div>
+      <div class="prow reveal"><div class="pn">04</div><div class="ph">Inhalte &amp; QA</div><p>Fahrzeuge, Texte und Magazin einpflegen, testen, feinschleifen.</p></div>
+      <div class="prow reveal"><div class="pn">05</div><div class="ph">Go-Live</div><p>Domain, Hosting, Tracking, Übergabe und Einweisung ins CMS.</p></div>
+    </div>
+    <div class="grid2">
+      <div class="card reveal"><span class="lbl">Was wir von ROSSWERK brauchen</span>
+        <ul class="list"><li>Fahrzeug-Daten und -Bilder für den Katalog</li><li>Marken- &amp; Standort-Infos für Hamburg</li><li>Freigaben in den jeweiligen Etappen</li></ul></div>
+      <div class="card hl reveal"><span class="lbl">Was ihr bekommt</span>
+        <ul class="list"><li>Eine schnelle, pflegbare Website im Markenlook</li><li>Ein Fahrzeug-Inventar zum Selbstverwalten</li><li>Messbarkeit ab Tag 1 durch Tracking</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Referenzen · Ausgewählte Projekte</div>
+      <h2>Seiten, die wir <span class="a">gebaut haben</span></h2>
+      <div class="subline">Eine Auswahl aktueller Projekte von NXT YOU.</div>
+    </div>
+    <div class="rows">
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Fly Fulfillment</div></div><div><div class="rhead"><span class="nm">Fly Fulfillment</span><span class="cat">Logistik · E-Commerce</span></div><p>Same-Day-Fulfillment für D2C-Brands: Relaunch mit Performance-Fokus und interaktivem Preisrechner.</p><div class="u">fly-fulfillment.com</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">TIER Group</div></div><div><div class="rhead"><span class="nm">TIER Group</span><span class="cat">Unternehmensgruppe</span></div><p>Neuer digitaler Markenauftritt nach dem Setup-first-Prinzip: erst Struktur, Design und Tracking.</p><div class="u">tier-web.webflow.io</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Medletics</div></div><div><div class="rhead"><span class="nm">Medletics Academy</span><span class="cat">Bildung · Health</span></div><p>TÜV-zertifizierte Academy mit klarer Conversion-Strecke für Kursanmeldungen.</p><div class="u">medletics-academy.de</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Blisterzentrum</div></div><div><div class="rhead"><span class="nm">Blisterzentrum Allgäu</span><span class="cat">Pharma · B2B</span></div><p>Partner-Landingpage mit Google-Ads-Setup — Neugeschäft in einem Jahr verdoppelt.</p><div class="u">partner.blisterzentrum-allgaeu.de</div></div></div>
+      <div class="rrow reveal"><div class="rtile"><div class="tn">Foerderung.de</div></div><div><div class="rhead"><span class="nm">Foerderung.de</span><span class="cat">Plattform · Fördermittel</span></div><p>Einfachster Zugang zu Fördermitteln: über 1.700 Programme, volldigitale Antragsstrecke.</p><div class="u">foerderung.de</div></div></div>
+    </div>
+    <div class="quote reveal">
+      <p>Wir freuen uns darauf, ROSSWERK einen Auftritt zu geben, der der Marke gerecht wird.</p>
+      <a class="cta-btn" href="mailto:office@nxtyou.de">Gespräch vereinbaren</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>office@nxtyou.de</div>
+    <div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>nxtyou.de</div>
+    <div class="fi"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2"/></svg>+49 176 80649500</div>
+  </div>
+</footer>
+
+</div>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el);});
+</script>
+</body>
+</html>
