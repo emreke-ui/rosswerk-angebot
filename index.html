@@ -175,6 +175,8 @@
   .linkbox .lbx-t{font-size:17px;font-weight:800;color:#fff}
   .linkbox .lbx-s{font-size:12.5px;color:var(--muted);margin-top:5px}
   .linkbox .lbx-ar{font-size:24px;color:var(--accent);font-weight:700}
+  .vidwrap{margin-top:28px}
+  .vid{width:100%;aspect-ratio:16/9;border:1px solid var(--border-2);border-radius:16px;background:#000;display:block}
 
   /* phases */
   .phases{display:flex;flex-direction:column;gap:14px;margin-top:32px}
@@ -258,6 +260,30 @@
   </div>
 </section>
 
+<section id="markenerlebnis">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Markenerlebnis · Look &amp; Feel</div>
+      <h2>Dunkel. Warm. <span class="a">Kompromisslos.</span></h2>
+      <div class="subline">Wie sich der Auftritt anfühlen soll.</div>
+      <p class="lead">Das Design folgt konsequent dem ROSSWERK Brandbook: Karamell auf tiefem Chocolate und Graphite, weite Typografie, viel Schwarzraum. Jede Sektion wirkt wie ein Standbild, ruhig inszeniert statt vollgestellt.</p>
+    </div>
+    <div class="grid2">
+      <div class="card reveal"><span class="lbl">Farbwelt</span>
+        <div style="display:flex;gap:8px;margin:14px 0 12px"><div style="flex:1;height:34px;background:#D8B48A;border-radius:6px"></div><div style="flex:1;height:34px;background:#2A1A13;border-radius:6px"></div><div style="flex:1;height:34px;background:#181818;border-radius:6px"></div></div>
+        <p>Karamell als Akzent, Chocolate als Bühne, Graphite als Tiefe. Warmes Dunkel statt kaltem Schwarz.</p></div>
+      <div class="card reveal"><span class="lbl">Typografie</span>
+        <p style="font-size:30px;letter-spacing:.26em;color:#fff;margin:12px 0 10px">A B C</p>
+        <p>Weite, lichte Headlines im Charakter der Wortmarke, ruhige Fließtexte. Laufweite als Signal für Wertigkeit.</p></div>
+      <div class="card reveal"><span class="lbl">Bildsprache</span>
+        <p style="margin-top:12px">Cineastische Fahrzeugaufnahmen, tiefe Schatten, warmes Licht. Das Auto ist der Held, das Interface tritt zurück.</p></div>
+      <div class="card reveal"><span class="lbl">Bewegung</span>
+        <p style="margin-top:12px">Langsame, weiche Übergänge und dezenter Parallax beim Scrollen. Bewegung, die beruhigt statt ablenkt.</p></div>
+    </div>
+    <div class="quote reveal" style="margin-top:24px"><p>„Beyond the ordinary drive." Dieses Versprechen wird auf jeder Seite spürbar, bevor der erste Satz gelesen ist.</p></div>
+  </div>
+</section>
+
 <section id="struktur">
   <div class="wrap">
     <div class="reveal">
@@ -315,7 +341,7 @@
     <div class="reveal">
       <div class="sec-eyebrow">Designvorschau · Eine erste Idee</div>
       <h2>Ein erster Blick <span class="a">auf ROSSWERK</span></h2>
-      <div class="subline">Kein finales Design, sondern eine spontane erste Idee. Wir fanden das Thema gestern einfach spannend, haben ein wenig reingearbeitet und ausprobiert, wie wir es angehen würden und welche Inspirationen uns leiten.</div>
+      <div class="subline">Ein bewusst früher Entwurf, kein finales Design. Er zeigt eine konkrete Richtung und unsere Herangehensweise, entstanden aus echtem Interesse am Projekt.</div>
     </div>
     <div class="mockmain reveal"><img src="assets/mockups/mock1.jpg" alt="ROSSWERK Reichweite" onerror="this.style.display='none';this.parentNode.append('Mockup 1 · Reichweite')"></div>
     <div class="mockrow">
@@ -323,15 +349,18 @@
       <div class="mockcell reveal"><img src="assets/mockups/mock3.jpg" alt="Startseite und Katalog" onerror="this.style.display='none';this.parentNode.append('Startseite')"></div>
       <div class="mockcell reveal"><img src="assets/mockups/mock4.jpg" alt="Über uns" onerror="this.style.display='none';this.parentNode.append('Über uns')"></div>
     </div>
-    <div class="ctarow">
+    <div class="vidwrap reveal">
+      <div class="lbl" style="margin-bottom:12px">Das Design im Video erklärt</div>
+      <video class="vid" controls preload="none" poster="assets/mockups/mock1.jpg"><source src="assets/video/rosswerk-design.mp4" type="video/mp4">Ihr Browser unterstützt dieses Video nicht.</video>
+    </div>
+    <div class="ctarow" style="grid-template-columns:1fr">
       <a class="linkbox reveal" href="https://www.figma.com/design/Iipx2sJYZB4qZ4un75Lsa2/Rosswerk-%7C-Website?node-id=2-11030&amp;p=f&amp;t=LS2YmVlaW2lVCaAX-11" target="_blank" rel="noopener"><div><div class="lbx-t">Den Entwurf in Figma öffnen</div><div class="lbx-s">Interaktiv durchklicken</div></div><span class="lbx-ar">→</span></a>
-      <a class="linkbox reveal" href="#LOOM" target="_blank" rel="noopener"><div><div class="lbx-t">Das Design im Video erklärt</div><div class="lbx-s">Kurzer Walkthrough auf Loom</div></div><span class="lbx-ar">→</span></a>
     </div>
     <div class="grid2">
       <div class="card reveal"><span class="lbl">Warum dieses Design</span>
         <p style="margin-top:10px">Dunkel, warm und cineastisch: Der Auftritt stellt das Fahrzeug in den Mittelpunkt und lässt das Interface zurücktreten. Viel Schwarzraum, weite Typografie und ruhige Bewegung erzeugen genau die Seriosität, die diese Preisklasse verlangt.</p></div>
       <div class="card reveal"><span class="lbl">Warum diese Bilder</span>
-        <p style="margin-top:10px">Große, atmosphärische Aufnahmen mit tiefem Licht inszenieren jedes Automobil wie ein Standbild. Sie schaffen Nähe und Begehrlichkeit und tragen die Marke, bevor der erste Satz gelesen ist.</p></div>
+        <p style="margin-top:10px">Große, atmosphärische Aufnahmen mit tiefem Licht rücken jedes Automobil in den Mittelpunkt. Sie schaffen Nähe und Begehrlichkeit und machen die Qualität sofort sichtbar.</p></div>
     </div>
   </div>
 </section>
@@ -352,7 +381,7 @@
     </div>
     <div class="grid2">
       <div class="card reveal"><span class="lbl">Was wir von ROSSWERK brauchen</span>
-        <ul class="list"><li>Fahrzeugdaten und Bilder für den Katalog</li><li>Marken &amp; Standortinfos für Hamburg</li><li>Freigaben in den jeweiligen Etappen</li></ul></div>
+        <ul class="list"><li>Fahrzeugdaten und Bilder für den Katalog</li><li>Infos zu Marke und Standort für Hamburg</li><li>Alle Texte und Bilder: Wir sind keine Copywriter und erstellen keine Inhalte, Texte und Fotos kommen von euch</li><li>Freigaben in den jeweiligen Etappen</li></ul></div>
       <div class="card hl reveal"><span class="lbl">Was ihr bekommt</span>
         <ul class="list"><li>Eine schnelle, pflegbare Website im Markenlook</li><li>Ein Fahrzeuginventar zum Selbstverwalten</li><li>Messbarkeit ab Tag 1 durch Tracking</li></ul></div>
     </div>
@@ -458,6 +487,7 @@
       <div class="tl">Gesamtinvestition<span>Nettopreis, zzgl. 19% USt. (brutto 5.331,20 €), Angebot gültig 30 Tage</span></div>
       <div class="tv">4.480 €</div>
     </div>
+    <p class="subline reveal" style="margin-top:14px;font-size:13px">Zahlungsplan: 50 % bei Auftrag, 50 % bei Go-Live.</p>
   </div>
 </section>
 
