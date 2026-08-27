@@ -152,6 +152,21 @@
   .totalbar .tl{font-size:17px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.03em}
   .totalbar .tl span{display:block;font-weight:400;font-size:12px;color:var(--muted);letter-spacing:.02em;text-transform:none;margin-top:4px}
   .totalbar .tv{font-size:44px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+  .scopelist{display:flex;flex-direction:column;gap:18px;margin-top:32px}
+  .modblock{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--card)}
+  .modbar{display:flex;justify-content:space-between;align-items:center;padding:15px 22px;background:rgba(154,168,222,0.09);border-bottom:1px solid var(--border-2)}
+  .modbar .mn{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .modbar .mh{font-size:14px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+  .litem{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:16px 22px;border-bottom:1px solid var(--border)}
+  .litem:last-child{border-bottom:none}
+  .litem .ld{font-size:14.5px;color:var(--text);line-height:1.55}
+  .litem .lh{font-size:15px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+  @media(max-width:600px){.litem{grid-template-columns:1fr;gap:6px}.litem .lh{color:var(--accent)}}
+  .mockmain{height:clamp(200px,42vw,430px);border:1px dashed var(--border-2);border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(154,168,222,0.06),rgba(20,23,29,.5));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:32px}
+  .mockmain img,.mockcell img{width:100%;height:100%;object-fit:cover;display:block}
+  .mockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+  @media(max-width:640px){.mockrow{grid-template-columns:1fr}}
+  .mockcell{height:clamp(150px,20vw,230px);border:1px dashed var(--border-2);border-radius:14px;overflow:hidden;background:linear-gradient(135deg,rgba(154,168,222,0.05),rgba(20,23,29,.5));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 
   /* phases */
   .phases{display:flex;flex-direction:column;gap:14px;margin-top:32px}
@@ -287,6 +302,28 @@
   </div>
 </section>
 
+<section id="vorschau">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-eyebrow">Designvorschau · Erster Entwurf</div>
+      <h2>Ein erster Blick <span class="a">auf ROSSWERK</span></h2>
+      <div class="subline">Ein grober Entwurf, der Richtung und Gefühl zeigt, noch nicht das finale Design.</div>
+    </div>
+    <div class="mockmain reveal">Mockup folgt · Startseite Hero</div>
+    <div class="mockrow">
+      <div class="mockcell reveal">Mockup folgt</div>
+      <div class="mockcell reveal">Mockup folgt</div>
+      <div class="mockcell reveal">Mockup folgt</div>
+    </div>
+    <div class="grid2">
+      <div class="card reveal"><span class="lbl">Warum dieses Design</span>
+        <p style="margin-top:10px">Dunkel, warm und cineastisch: Der Auftritt stellt das Fahrzeug in den Mittelpunkt und lässt das Interface zurücktreten. Viel Schwarzraum, weite Typografie und ruhige Bewegung erzeugen genau die Seriosität, die diese Preisklasse verlangt.</p></div>
+      <div class="card reveal"><span class="lbl">Warum diese Bilder</span>
+        <p style="margin-top:10px">Große, atmosphärische Aufnahmen mit tiefem Licht inszenieren jedes Automobil wie ein Standbild. Sie schaffen Nähe und Begehrlichkeit und tragen die Marke, bevor der erste Satz gelesen ist.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="umfang">
   <div class="wrap">
     <div class="reveal">
@@ -294,36 +331,32 @@
       <h2>Was wir <span class="a">liefern</span></h2>
       <div class="subline">Transparente Aufschlüsselung nach Modulen und geschätztem Aufwand.</div>
     </div>
-    <div class="tablewrap reveal">
-      <table>
-        <thead><tr><th style="width:82%">Funktionsbeschreibung</th><th style="text-align:right">Std.</th></tr></thead>
-        <tbody>
-          <tr class="modhdr"><td>UX &amp; Design</td><td class="h">18</td></tr>
-          <tr><td>Analyse von Zielgruppe und Kernbotschaften, Conversionziele sowie Entwicklung der Seitenstruktur als Sitemap</td><td class="h">4</td></tr>
-          <tr><td>Wireframes als funktionales Grundgerüst mit UX Flows für alle wesentlichen Nutzerinteraktionen</td><td class="h">4</td></tr>
-          <tr><td>Individuelles Designkonzept (Look &amp; Feel) auf Basis des Brandbooks für alle Seiten: Farben, Typografie, Komponenten</td><td class="h">7</td></tr>
-          <tr><td>Mobile First Design, Responsive Layouts für alle Endgeräte sowie abschließendes Designabnahme</td><td class="h">3</td></tr>
-          <tr class="modhdr"><td>Technische Umsetzung</td><td class="h">29</td></tr>
-          <tr><td>Umsetzung aller Seiten (Start, Über uns, Services, Karriere, Kontakt, Magazin) in sauberem, performantem Code inkl. globaler Elemente</td><td class="h">15</td></tr>
-          <tr><td>Fahrzeugkatalog mit Filter und Detailvorlage; vorlagenbasierte Wiederverwendung für den Bereich Classics</td><td class="h">9</td></tr>
-          <tr><td>Integration eines CMS (vorlagenbasiert) für Katalog, Magazin und Karriere, editierbare Inhalte</td><td class="h">5</td></tr>
-          <tr class="modhdr"><td>Performance, SEO &amp; Formulare</td><td class="h">6</td></tr>
-          <tr><td>Optimierung von Ladezeiten und Core Web Vitals für saubere Performance auf allen Endgeräten</td><td class="h">2</td></tr>
-          <tr><td>Konzeption, Design und datenschutzkonforme Integration des Kontaktformulars und Anfrageformulars</td><td class="h">2</td></tr>
-          <tr><td>SEO Grundsetup: Struktur, Title Tags, Metabeschreibungen, Sitemap &amp; Robots</td><td class="h">2</td></tr>
-          <tr class="modhdr"><td>Livegang, Server &amp; Hosting</td><td class="h">3</td></tr>
-          <tr><td>Einrichtung von Domain, Server und Hosting, technischer Livegang sowie Übergabe der Zugänge und Schulungsmaterialien</td><td class="h">3</td></tr>
-          <tr class="grand"><td>Gesamtaufwand</td><td class="h">56 Std.</td></tr>
-        </tbody>
-      </table>
+    <div class="scopelist">
+      <div class="modblock reveal">
+        <div class="modbar"><span class="mn">UX &amp; Design</span><span class="mh">18 Std.</span></div>
+        <div class="litem"><span class="ld">Analyse von Zielgruppe und Kernbotschaften, Conversionziele sowie Entwicklung der Seitenstruktur als Sitemap</span><span class="lh">4 Std.</span></div>
+        <div class="litem"><span class="ld">Wireframes als funktionales Grundgerüst mit UX Flows für alle wesentlichen Nutzerinteraktionen</span><span class="lh">4 Std.</span></div>
+        <div class="litem"><span class="ld">Individuelles Designkonzept (Look &amp; Feel) auf Basis des Brandbooks für alle Seiten: Farben, Typografie, Komponenten</span><span class="lh">7 Std.</span></div>
+        <div class="litem"><span class="ld">Mobile First Design, Responsive Layouts für alle Endgeräte sowie abschließende Designabnahme</span><span class="lh">3 Std.</span></div>
+      </div>
+      <div class="modblock reveal">
+        <div class="modbar"><span class="mn">Technische Umsetzung</span><span class="mh">29 Std.</span></div>
+        <div class="litem"><span class="ld">Umsetzung aller Seiten (Start, Über uns, Services, Karriere, Kontakt, Magazin) in sauberem, performantem Code inkl. globaler Elemente</span><span class="lh">15 Std.</span></div>
+        <div class="litem"><span class="ld">Fahrzeugkatalog mit Filter und Detailvorlage; vorlagenbasierte Wiederverwendung für den Bereich Classics</span><span class="lh">9 Std.</span></div>
+        <div class="litem"><span class="ld">Integration eines CMS (vorlagenbasiert) für Katalog, Magazin und Karriere, editierbare Inhalte</span><span class="lh">5 Std.</span></div>
+      </div>
+      <div class="modblock reveal">
+        <div class="modbar"><span class="mn">Performance, SEO &amp; Formulare</span><span class="mh">6 Std.</span></div>
+        <div class="litem"><span class="ld">Optimierung von Ladezeiten und Core Web Vitals für saubere Performance auf allen Endgeräten</span><span class="lh">2 Std.</span></div>
+        <div class="litem"><span class="ld">Konzeption, Design und datenschutzkonforme Integration des Kontaktformulars und Anfrageformulars</span><span class="lh">2 Std.</span></div>
+        <div class="litem"><span class="ld">SEO Grundsetup: Struktur, Title Tags, Metabeschreibungen, Sitemap &amp; Robots</span><span class="lh">2 Std.</span></div>
+      </div>
+      <div class="modblock reveal">
+        <div class="modbar"><span class="mn">Livegang, Server &amp; Hosting</span><span class="mh">3 Std.</span></div>
+        <div class="litem"><span class="ld">Einrichtung von Domain, Server und Hosting, technischer Livegang sowie Übergabe der Zugänge und Schulungsmaterialien</span><span class="lh">3 Std.</span></div>
+      </div>
     </div>
-    <div class="modsum reveal">
-      <div class="ms"><div class="msn">18</div><div class="msl">UX &amp; Design</div></div>
-      <div class="ms"><div class="msn">29</div><div class="msl">Technische Umsetzung</div></div>
-      <div class="ms"><div class="msn">6</div><div class="msl">Performance &amp; SEO</div></div>
-      <div class="ms"><div class="msn">3</div><div class="msl">Livegang &amp; Hosting</div></div>
-      <div class="ms tot"><div class="msn">56</div><div class="msl">Gesamt · Stunden</div></div>
-    </div>
+    <div class="totalbar reveal"><div class="tl">Gesamtaufwand<span>Vier Module, klar kalkuliert</span></div><div class="tv">56 Std.</div></div>
   </div>
 </section>
 
@@ -361,10 +394,6 @@
     <div class="totalbar reveal">
       <div class="tl">Gesamtinvestition<span>zzgl. gesetzlicher USt. · Angebot gültig 30 Tage</span></div>
       <div class="tv">4.480 €</div>
-    </div>
-    <div class="card reveal" style="margin-top:26px">
-      <span class="lbl">Hinweis zur Kalkulation</span>
-      <p style="margin-top:10px">Bewusst schlank kalkuliert: Wir arbeiten vorlagenbasiert und verzichten auf die sonst üblichen Aufschläge für Projektmanagement und Puffer. Ein kleiner Sicherheitspuffer ist bereits in der Schätzung enthalten. Das ist Teil der Freundschaftskondition.</p>
     </div>
   </div>
 </section>
