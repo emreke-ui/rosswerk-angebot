@@ -166,7 +166,14 @@
   .mockmain img,.mockcell img{width:100%;height:100%;object-fit:cover;display:block}
   .mockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
   @media(max-width:640px){.mockrow{grid-template-columns:1fr}}
-  .mockcell{height:clamp(150px,20vw,230px);border:1px dashed var(--border-2);border-radius:14px;overflow:hidden;background:linear-gradient(135deg,rgba(154,168,222,0.05),rgba(20,23,29,.5));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .mockcell{height:clamp(150px,20vw,230px);border:1px dashed var(--border-2);border-radius:14px;overflow:hidden;background:linear-gradient(135deg,rgba(154,168,222,0.05),rgba(20,23,29,.5));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:10px}
+  .ctarow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  @media(max-width:640px){.ctarow{grid-template-columns:1fr}}
+  .linkbox{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--border-2);border-radius:16px;padding:22px 26px;background:linear-gradient(120deg,rgba(154,168,222,0.10),rgba(20,23,29,0.4));color:var(--white);transition:border-color .3s,transform .3s}
+  .linkbox:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .linkbox .lbx-t{font-size:17px;font-weight:800;color:#fff}
+  .linkbox .lbx-s{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .linkbox .lbx-ar{font-size:24px;color:var(--accent);font-weight:700}
 
   /* phases */
   .phases{display:flex;flex-direction:column;gap:14px;margin-top:32px}
@@ -305,15 +312,19 @@
 <section id="vorschau">
   <div class="wrap">
     <div class="reveal">
-      <div class="sec-eyebrow">Designvorschau · Erster Entwurf</div>
+      <div class="sec-eyebrow">Designvorschau · Eine erste Idee</div>
       <h2>Ein erster Blick <span class="a">auf ROSSWERK</span></h2>
-      <div class="subline">Ein grober Entwurf, der Richtung und Gefühl zeigt, noch nicht das finale Design.</div>
+      <div class="subline">Kein finales Design, sondern eine spontane erste Idee. Wir fanden das Thema gestern einfach spannend, haben ein wenig reingearbeitet und ausprobiert, wie wir es angehen würden und welche Inspirationen uns leiten.</div>
     </div>
-    <div class="mockmain reveal">Mockup folgt · Startseite Hero</div>
+    <div class="mockmain reveal"><img src="assets/mockups/mock1.jpg" alt="ROSSWERK Reichweite" onerror="this.style.display='none';this.parentNode.append('Mockup 1 · Reichweite')"></div>
     <div class="mockrow">
-      <div class="mockcell reveal">Mockup folgt</div>
-      <div class="mockcell reveal">Mockup folgt</div>
-      <div class="mockcell reveal">Mockup folgt</div>
+      <div class="mockcell reveal"><img src="assets/mockups/mock2.jpg" alt="Social Media" onerror="this.style.display='none';this.parentNode.append('Social Media')"></div>
+      <div class="mockcell reveal"><img src="assets/mockups/mock3.jpg" alt="Startseite und Katalog" onerror="this.style.display='none';this.parentNode.append('Startseite')"></div>
+      <div class="mockcell reveal"><img src="assets/mockups/mock4.jpg" alt="Über uns" onerror="this.style.display='none';this.parentNode.append('Über uns')"></div>
+    </div>
+    <div class="ctarow">
+      <a class="linkbox reveal" href="https://www.figma.com/design/3CGDQpBBBEIK1oR2eWegqE/ONP?node-id=520-6570" target="_blank" rel="noopener"><div><div class="lbx-t">Den Entwurf in Figma öffnen</div><div class="lbx-s">Interaktiv durchklicken</div></div><span class="lbx-ar">→</span></a>
+      <a class="linkbox reveal" href="#LOOM" target="_blank" rel="noopener"><div><div class="lbx-t">Das Design im Video erklärt</div><div class="lbx-s">Kurzer Walkthrough auf Loom</div></div><span class="lbx-ar">→</span></a>
     </div>
     <div class="grid2">
       <div class="card reveal"><span class="lbl">Warum dieses Design</span>
@@ -369,7 +380,7 @@
     </div>
     <div class="tablewrap reveal">
       <table class="ctable">
-        <thead><tr><th style="width:58%">Modul</th><th class="r">Aufwand</th><th class="r">Betrag · 80 € / Std.</th></tr></thead>
+        <thead><tr><th style="width:58%">Modul</th><th class="r">Aufwand</th><th class="r">Betrag netto · 80 € / Std.</th></tr></thead>
         <tbody>
           <tr><td class="mod">UX &amp; Design</td><td class="r">18 Std.</td><td class="r">1.440 €</td></tr>
           <tr><td class="mod">Technische Umsetzung</td><td class="r">29 Std.</td><td class="r">2.320 €</td></tr>
@@ -383,16 +394,16 @@
       <div class="pcard reveal">
         <div class="pl">Standardkondition</div>
         <div class="pv strike">5.600 €</div>
-        <div class="pn">56 Std. zum regulären Satz von 100 € pro Stunde.</div>
+        <div class="pn">56 Std. zum regulären Satz von 100 € netto pro Stunde.</div>
       </div>
       <div class="pcard hl reveal">
         <div class="pl">Freundschaftskondition</div>
         <div class="pv">4.480 €</div>
-        <div class="pn">56 Std. zu 80 € pro Stunde. Ihr Vorteil: 1.120 €.</div>
+        <div class="pn">56 Std. zu 80 € netto pro Stunde. Ihr Vorteil: 1.120 €.</div>
       </div>
     </div>
     <div class="totalbar reveal">
-      <div class="tl">Gesamtinvestition<span>zzgl. gesetzlicher USt. · Angebot gültig 30 Tage</span></div>
+      <div class="tl">Gesamtinvestition<span>Nettopreis, zzgl. 19% USt. (brutto 5.331,20 €), Angebot gültig 30 Tage</span></div>
       <div class="tv">4.480 €</div>
     </div>
   </div>
